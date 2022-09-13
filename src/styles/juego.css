@@ -1,0 +1,270 @@
+/*@import './normalize.css';*/
+@import './global.css';
+
+.juego {
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+  align-items: center;
+}
+.cuadro__recor-anterior {
+  display: block;
+  display: none;
+  margin: 0 auto;
+  margin-top: 10px;
+  padding: 5px;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid black;
+  width: 300px;
+  height: 100px;
+}
+/* ---------------------- 850px ------------------- */
+/*** a esta resolucion se ajustan algunos valores para una mejor vision ****/
+
+@media screen and (min-width: 850px) {
+  .juego {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+#ocultar {
+  display: none;
+}
+
+/**************** Sección Tablero de juego ***********************/
+/******************************************************************/
+.contenedor-tablero {
+  margin: 1em;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 410px 160px;
+  grid-auto-flow: dense;
+  justify-content: center;
+  align-items: self-end;
+  justify-items: center;
+}
+.grid-tablero {
+  display: grid;
+  flex-direction: row;
+  background-color: antiquewhite;
+  border: 3px solid black;
+  flex-wrap: wrap;
+  justify-items: flex-end;
+}
+.grid-tablero img {
+  border: 0.01px solid black;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* .grid-tablero-apaisado {
+  width: 410px;
+  height: 310px;
+} */
+.grid-tablero-apaisado.grid-n1 {
+  grid-template-columns: repeat(4, calc(405px / 4));
+  grid-template-rows: repeat(3, calc(305px / 3));
+}
+.grid-tablero-apaisado.grid-n1 img {
+  width: calc(405px / 4);
+  height: calc(305px / 3);
+}
+.grid-tablero-apaisado.grid-n2 {
+  grid-template-columns: repeat(6, calc(405px / 6));
+  grid-template-rows: repeat(4, calc(305px / 4));
+}
+.grid-tablero-apaisado.grid-n2 img {
+  width: calc(405px / 6);
+  height: calc(305px / 4);
+}
+.grid-tablero-apaisado.grid-n3 {
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+}
+.grid-tablero-apaisado.grid-n3 img {
+  width: calc(405px / 8);
+  height: calc(305px / 6);
+}
+/* .grid-tablero-apaisado-no {
+  width: 305px;
+  height: 405px;
+} */
+.grid-tablero-apaisado-no.grid-n1 {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+.grid-tablero-apaisado-no.grid-n1 img {
+  width: calc(305px / 3);
+  height: calc(405px / 4);
+}
+.grid-tablero-apaisado-no.grid-n2 {
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+}
+.grid-tablero-apaisado-no.grid-n2 img {
+  width: calc(305px / 4);
+  height: calc(405px / 6);
+}
+.grid-tablero-apaisado-no.grid-n3 {
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+}
+.grid-tablero-apaisado-no.grid-n3 img {
+  width: calc(305px / 6);
+  height: calc(405px / 8);
+}
+.grid-tablero-apaisado.grid-n1 + .grid-ultima-pieza .div-img-pieza-fuera {
+  width: calc(405px / 4);
+  height: calc(305px / 3);
+}
+
+.grid-tablero-apaisado.grid-n1 + .grid-ultima-pieza .div-img-pieza-fuera {
+  width: calc(405px / 4);
+  height: calc(305px / 3);
+}
+.grid-tablero-apaisado.grid-n2 + .grid-ultima-pieza .div-img-pieza-fuera {
+  width: calc(405px / 6);
+  height: calc(305px / 4);
+}
+.grid-tablero-apaisado.grid-n3 + .grid-ultima-pieza .div-img-pieza-fuera {
+  width: calc(405px / 8);
+  height: calc(305px / 6);
+}
+.grid-tablero-apaisado-no.grid-n1 + .grid-ultima-pieza .div-img-pieza-fuera {
+  width: calc(305px / 3);
+  height: calc(405px / 4);
+}
+.grid-tablero-apaisado-no.grid-n2 + .grid-ultima-pieza .div-img-pieza-fuera {
+  width: calc(305px / 4);
+  height: calc(405px / 6);
+}
+.grid-tablero-apaisado-no.grid-n3 + .grid-ultima-pieza .div-img-pieza-fuera {
+  width: calc(305px / 6);
+  height: calc(405px / 8);
+}
+
+/**************** Sección contadores y ultima pieza ***************/
+/******************************************************************/
+
+.h3-mov-time {
+  grid-column: 1/2;
+}
+.h3-movimientos {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.btn-empezar {
+  height: 2rem;
+  margin: 1rem;
+  font-size: 1rem;
+  text-align: center;
+  width: fit-content;
+  background-color: rgb(208, 119, 119);
+}
+
+/********************** Sección Ultima pieza ***********************/
+
+.grid-ultima-pieza {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: 1.5fr;
+  width: 305px;
+  height: 156px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.grid-apaisado {
+  width: 405px;
+}
+.grid-apaisado-no {
+  width: 305px;
+}
+.div-img-pieza-fuera {
+  margin-top: -7px;
+  margin-right: -1px;
+  justify-self: end;
+  display: flex;
+  align-self: flex-start;
+  flex-wrap: wrap;
+  border: 0.01px solid black;
+  cursor: pointer;
+}
+.img-pieza-fuera {
+  width: 100%;
+  height: 100%;
+}
+
+/**************** Sección Mensaje Ganó ****************************/
+/******************************************************************/
+
+.mensaje-gano {
+  position: absolute;
+  margin-top: 203px;
+  text-align: center;
+  font-size: 2.2em;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+  color: red;
+  margin-left: 0.5rem;
+  transition: 2s;
+  animation-duration: 0.5s;
+  animation-name: parpadeo;
+  animation-iteration-count: 5;
+}
+
+.mensaje-perdio {
+  position: absolute;
+  margin-top: 203px;
+  text-align: center;
+  font-size: 2.2em;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+  color: red;
+  margin-left: 0.5rem;
+  transition: 2s;
+  animation-duration: 0.5s;
+  animation-name: parpadeo;
+  animation-iteration-count: 5;
+}
+@keyframes parpadeo {
+  from {
+    color: aqua;
+    font-size: 1em;
+  }
+  to {
+    color: red;
+    font-size: 2.2em;
+  }
+}
+
+/************** Sección presentación de la imagen elegida *********/
+/******************************************************************/
+
+.marco-foto {
+  margin: 1em;
+  max-width: 405px;
+  max-height: 405px;
+  display: flex;
+  align-items: center;
+}
+.foto-elegida {
+  width: 305px;
+  height: 405px;
+  border: 1px solid black;
+  margin: 0 auto;
+  position: relative;
+}
+.foto-apaisada {
+  width: 405px;
+  height: 305px;
+}
+.img-foto {
+  width: 100%;
+  height: 100%;
+  border: 1px solid black;
+  position: relative;
+}
